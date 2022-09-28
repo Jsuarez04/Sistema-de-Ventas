@@ -1,9 +1,6 @@
 
 #DECLARAMOS UN USUARIO Y UN PASSWORD PARA INGRESAR#
-from tkinter import Menu
-
-
-print("::: BIENVENIDO A EVA'S POS :::")
+print("::: BIENVENIDO A LIBRERIA EVA'S POS :::")
 Usuarios={"master":1234, "gerente":5678}
 contador = 0
 #Aquí mostramos las distintas opciones a elegir para cada operación#
@@ -18,12 +15,12 @@ def Menu_principal():
     
     if opcion == 1:
         print("\t :: ARCHIVO ::")
-        print("1. ::: USUARIOS :::")
-        print("2. ::: CLIENTES :::")
-        print("3. ::: PRODUCTOS :::")
-        print("4. ::: CAMBIO DE USUARIO :::")
-        print("5. ::: CAMBIO DE CLAVE :::")
-        print("6. ::: SALIR :::")
+        print("1. ::: Usuarios :::")
+        print("2. ::: Clientes :::")
+        print("3. ::: Productos :::")
+        print("4. ::: Cambio de Usuario :::")
+        print("5. ::: Cambio de Clave :::")
+        print("6. ::: Salir :::")
         opcion_archivo=int(input("Ingrese el número de su opción: "))
     
         if opcion_archivo== 1:
@@ -32,7 +29,8 @@ def Menu_principal():
         elif opcion_archivo == 2:
             pass
         elif opcion_archivo == 6:
-            return Menu_principal()    
+            return Menu_principal()  
+
 
 while True:
     usuario_=input("Ingrese su nombre de usuario:")
@@ -47,13 +45,15 @@ while True:
 
 
 def Menu_Usuarios(): 
-    print("1. :: AGREGAR NUEVO USUARIO ::")
-    print("2. :: ELIMINAR USUARIO ::")
-    print("3. :: VER USUARIOS ::")
-    print("4. :: SALIR ::")
+    print("\t :: MENU DE USUARIOS ::")
+    print("1. ::: Agregar Nuevo Usuario :::")
+    print("2. ::: ELiminar Usuario :::")
+    print("3. ::: Ver Usuarios :::")
+    print("4. ::: Salir :::")
     opcion_usuario=int(input("Ingrese el número de su opción: "))
         
     if opcion_usuario==1:
+        print("\t:: Agregar Nuevo Usuario ::")
         agg_us=(input("INGRESE EL NOMBRE DEL NUEVO USUARIO: ")) 
         agg_passw =(input("INGRESE LA CLAVE DEL NUEVO USUARIO: ")) 
         conf=(input("CONFIRME LA CLAVE DEL NUEVO USUARIO: ")) 
@@ -62,11 +62,11 @@ def Menu_Usuarios():
             print("USUARIO AGREGADO EXITOSAMENTE")
             return Menu_Usuarios()
         else:
-            print("Inténtelo de nuevo!!!")    
+            print("Clave invalida ¡Inténtelo de nuevo!")    
             return Menu_Usuarios()
     
     elif opcion_usuario == 2:
-        print("***Eliminacion de Usuarios***")
+        print("\t:: Eliminacion de Usuarios ::")
         for key in Usuarios:
             contador += 1
             print(f"{contador}. {key}")
@@ -81,7 +81,7 @@ def Menu_Usuarios():
             return Menu_Usuarios()
     
     elif opcion_usuario == 3:
-        print("\t:::Reporte de usuarios:::")
+        print("\t:: Reporte de usuarios ::")
         print("Nombre - Contraseña - Nivel de seguridad")
         for key, value in Usuarios.items():
             if key == "master" or key == "gerente":
@@ -91,4 +91,23 @@ def Menu_Usuarios():
         Salir= input("Escribe salir para retroceder: ")
         if Salir == "salir":
             return Menu_Usuarios()
+    
+    elif opcion_usuario == 4:
+        return Menu_principal()
+    
+
+def Menu_clientes():
+    print("\t :: GESTION DE CLIENTES ::")
+    print("1. :: Agregar Clientes ::")
+    print("2. :: Eliminar Clientes ::")
+    print("3. :: Reporte de Clientes ::")
+    print("4. :: Modificacion de Clientes ::")
+    print("5. :: Salir ::") 
+    opcion_clientes = input("Ingrese el numero de opcion: ")
+    lista_clientes = {"Roberto":"V8.435.887",}
+
+    if opcion_clientes == 1:
+        pass
+    elif opcion_clientes == 5:
+        return Menu_principal()
 
