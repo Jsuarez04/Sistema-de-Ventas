@@ -133,6 +133,76 @@ def Menu_clientes():
     print("4. :: Modificacion de Clientes ::")
     print("5. :: Salir ::") 
     opcion_clientes = input("Ingrese el numero de opcion: ")
+        print("\t :: GESTION DE CLIENTES ::")
+    print("1. :: Agregar Clientes ::")
+    print("2. :: Eliminar Clientes ::")
+    print("3. :: Reporte de clientes ::")
+    print("4. :: SALIR ::")
+    
+    opcion_clientes =int(input("Ingrese el numero de opcion: "))
+    if opcion_clientes == 1:
+        print("\t:: Agregar Nuevo cliente ::")
+        agg_cl=(input("INGRESE EL NOMBRE DEL NUEVO CLIENTE: ")) 
+        agg_ci =(input("INGRESE LA CEDULA DEL NUEVO CLIENTE: ")) 
+        Clientes[agg_cl]= agg_ci
+        print("CLIENTE AGREGADO EXITOSAMENTE")
+        return Menu_clientes()
+    
+    elif opcion_clientes == 2:
+        contador = 0
+        print("\t:: Eliminacion de clientes ::")
+        for key in Clientes:
+            contador += 1
+            print(f"{contador}. {key}")
+        opcion_elim = input("Ingrese el nombre del cliente que desea eliminar: ")
+            
+        if opcion_elim in Clientes:
+            Clientes.pop(opcion_elim)
+            print("Cliente eliminado!")
+            return Menu_clientes()
+        else:
+            print("Ese Cliente no esta registrado...")
+            return Menu_clientes()
+    
+    elif opcion_clientes== 3:
+        print("\t:: Reporte de Clientes ::")
+        print("Nombre - C.I / RIF")
+        for key, value in Clientes.items():
+                print(f"{key}  \t{value}")
+        Salir= input("Escribe salir para retroceder: ")
+        if Salir == "salir":
+            return Menu_clientes()
+    
+    elif opcion_clientes == 4:
+        return Menu_principal()
+
+def Menu_principal():
+    print('\t ::: BIENVENIDO :::')
+    print("\t:: MENÚ PRINCIPAL ::")
+    print("1. ::: ARCHIVO :::")
+    print("2. ::: MOVIMIENTOS :::")
+    print("3. ::: AYUDA :::")
+    print("4. ::: SALIR :::")
+    opcion = int(input("Ingrese el número de su opción: "))
+    
+
+
+    if opcion == 1:
+        print("\t :: ARCHIVO ::")
+        print("1. ::: Usuarios :::")
+        print("2. ::: Clientes :::")
+        print("3. ::: Productos :::")
+        print("4. ::: Cambio de Usuario :::")
+        print("5. ::: Cambio de Clave :::")
+        print("6. ::: Salir :::")
+        opcion_archivo=int(input("Ingrese el número de su opción: "))
+    
+        if opcion_archivo== 1:
+            return Menu_Usuarios()
+        elif opcion_archivo==2:
+            return Menu_clientes()
+        elif opcion_archivo == 6:
+            return Menu_principal()
 
 # Luego completamos con una funcion principal que sea capaz de llamar a las demas
 def Menu_principal():
